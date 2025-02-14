@@ -49,11 +49,8 @@ OneSlide 是一个简单易用的照片整理应用，帮助用户通过滑动�
 - **Photos**：用于访问和管理系统相册
 - **Combine**：用于数据绑定和状态管理
 
-## 贡献
-欢迎提交 Issue 和 Pull Request。请在提交 PR 前确保代码风格一致，并通过所有测试。
-
-## 许可证
-本项目采用 MIT 许可证。详情请查看 [LICENSE](LICENSE) 文件。
+## 注意⚠️
+本项目仅为个人开发的玩具项目，不对任何可能的数据丢失负责！
 
 ## 联系方式
-如有任何问题或建议，请联系 [your.email@example.com](mailto:your.email@example.com)
+如有任何问题或建议，开启issue
