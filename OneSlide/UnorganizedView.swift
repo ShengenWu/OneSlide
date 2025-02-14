@@ -23,14 +23,14 @@ struct UnorganizedView: View {
                     VStack {
                         PhotoCard(photo: photoLoader.photos[currentIndex])
                             .offset(offset)
-                            .rotationEffect(.degrees(Double(offset.width / 20)))
+                            .rotationEffect(.degrees(min(max(Double(offset.width / 20), -30), 30)))
                             .gesture(
                                 DragGesture()
                                     .onChanged { gesture in
                                         offset = gesture.translation
                                     }
                                     .onEnded { gesture in
-                                        withAnimation {
+                                        withAnimation(.interactiveSpring()) {
                                             if abs(gesture.translation.width) > 100 {
                                                 if gesture.translation.width < 0 {
                                                     // 左划保留
