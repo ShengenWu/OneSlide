@@ -3,14 +3,23 @@ import Photos
 
 struct TrashView: View {
     @Binding var deletedPhotos: [Photo]
+    @State private var previewPhoto: Photo? = nil
+    
+    let columns = [
+        GridItem(.adaptive(minimum: 100), spacing: 2)
+    ]
     
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]) {
+                LazyVGrid(columns: columns, spacing: 2) {
                     ForEach(deletedPhotos) { photo in
                         PhotoCard(photo: photo)
-                            .frame(width: 100, height: 100)
+                            .aspectRatio(1, contentMode: .fill)
+                            .clipped()
+                            .onLongPressGesture {
+                                previewPhoto = photo
+                            }
                     }
                 }
             }
@@ -21,6 +30,9 @@ struct TrashView: View {
                     Text("删除全部")
                 }
             )
+            .sheet(item: $previewPhoto) { photo in
+                PhotoPreviewView(photo: photo)
+            }
         }
     }
     
@@ -37,5 +49,14 @@ struct TrashView: View {
                 }
             }
         })
+    }
+}
+
+struct PhotoPreviewView: View {
+    let photo: Photo
+    
+    var body: some View {
+        PhotoCard(photo: photo)
+            .padding()
     }
 } 
