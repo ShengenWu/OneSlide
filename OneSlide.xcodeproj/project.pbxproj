@@ -29,9 +29,22 @@
 		1DDA231C2D5F1F3C00D4765E /* OneSlideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OneSlideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1DDA23442D5F323900D4765E /* Exceptions for "OneSlide" folder in "OneSlide" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 1DDA23012D5F1F3A00D4765E /* OneSlide */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		1DDA23042D5F1F3A00D4765E /* OneSlide */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1DDA23442D5F323900D4765E /* Exceptions for "OneSlide" folder in "OneSlide" target */,
+			);
 			path = OneSlide;
 			sourceTree = "<group>";
 		};
@@ -398,6 +411,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"OneSlide/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneSlide/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need to access your photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -426,6 +441,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"OneSlide/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneSlide/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need to access your photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

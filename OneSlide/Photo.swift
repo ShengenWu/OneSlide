@@ -1,6 +1,7 @@
 import Foundation
+import Photos
 
 struct Photo: Identifiable {
     let id = UUID()
-    let imageName: String
+    let asset: PHAsset
 } 

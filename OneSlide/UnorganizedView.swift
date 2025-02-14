@@ -1,35 +1,36 @@
 import SwiftUI
 
 struct UnorganizedView: View {
-    @State private var photos: [Photo] = [
-        Photo(imageName: "photo1"),
-        Photo(imageName: "photo2"),
-        Photo(imageName: "photo3")
-    ]
+    @StateObject private var photoLoader = PhotoLoader()
     @State private var deletedPhotos: [Photo] = []
+    @State private var currentIndex: Int = 0
     
     var body: some View {
         NavigationView {
-            ZStack {
-                ForEach(photos) { photo in
-                    PhotoCard(photo: photo)
+            VStack {
+                if currentIndex < photoLoader.photos.count {
+                    PhotoCard(photo: photoLoader.photos[currentIndex])
                         .gesture(
                             DragGesture()
                                 .onEnded { gesture in
                                     if gesture.translation.width < -100 {
                                         // 左划保留
                                         withAnimation {
-                                            photos.removeAll { $0.id == photo.id }
+                                            currentIndex += 1
                                         }
                                     } else if gesture.translation.width > 100 {
                                         // 右划删除
                                         withAnimation {
-                                            photos.removeAll { $0.id == photo.id }
-                                            deletedPhotos.append(photo)
+                                            deletedPhotos.append(photoLoader.photos[currentIndex])
+                                            currentIndex += 1
                                         }
                                     }
                                 }
                         )
+                } else {
+                    Text("所有照片已处理完毕")
+                        .font(.title)
+                        .padding()
                 }
             }
             .navigationBarItems(trailing:
